@@ -4,6 +4,8 @@ namespace UliCMS\Utils\ConvertToSeconds;
 
 use BadMethodCallException;
 
+// This methods converts a given a time unit to seconds
+// e.g. 10 minutes will return 600
 function convertToSeconds(int $timespan, string $unit): int {
     switch ($unit) {
         case TimeUnit::SECONDS:

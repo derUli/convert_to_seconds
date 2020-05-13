@@ -2,6 +2,7 @@
 
 namespace UliCMS\Utils\ConvertToSeconds;
 
+// Use this constants for the $unit param of convertToSeconds()
 class TimeUnit {
 
     const SECONDS = "seconds";
