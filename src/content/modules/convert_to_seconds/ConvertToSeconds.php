@@ -2,7 +2,7 @@
 
 namespace UliCMS\Utils\ConvertToSeconds;
 
-use BadMethodCallException;
+use InvalidArgumentException;
 
 // This methods converts a given a time unit to seconds
 // e.g. 10 minutes will return 600
@@ -25,6 +25,6 @@ function convertToSeconds(int $timespan, string $unit): int {
         case TimeUnit::DECADES:
             return $timespan * 60 * 60 * 24 * 365 * 10;
         default:
-            throw new BadMethodCallException("$unit is an unknown time unit.");
+            throw new InvalidArgumentException("$unit is an unknown time unit.");
     }
 }

@@ -32,7 +32,7 @@ class ConvertToSecondsTest extends TestCase {
     }
 
     public function testConvertThrowsBadMethodCallException() {
-        $this->expectException(BadMethodCallException::class);
+        $this->expectException(InvalidArgumentException::class);
         convertToSeconds(
                 4,
                 "lightyears"
