@@ -7,7 +7,7 @@
 ```php
 <?php
 use function UliCMS\Utils\ConvertToSeconds\convertToSeconds;
-convertToSeconds(60, 'seconds') // => 6
+convertToSeconds(60, 'seconds') // => 60
 convertToSeconds(5, 'minutes') // => 300 
 convertToSeconds(2, 'hours') // => 7200
 convertToSeconds(1, 'days') // => 86400
