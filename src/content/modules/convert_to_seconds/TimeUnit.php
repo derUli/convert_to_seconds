@@ -2,7 +2,9 @@
 
 namespace content\modules\convert_to_seconds;
 
-// Use this constants for the $unit param of convertToSeconds()
+/**
+ * Use this constants for the $unit param of convertToSeconds()
+ */
 enum TimeUnit
 {
     case SECONDS;
