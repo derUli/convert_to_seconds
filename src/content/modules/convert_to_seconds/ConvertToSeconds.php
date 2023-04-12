@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace content\modules\convert_to_seconds;
 
+defined('ULICMS_ROOT') || exit('No direct script access allowed');
+
 class ConvertToSeconds
 {
    /**
     * Converts a timespan in a given unit to seconds
     *
     *
-    * @param int @timespan
-    * @param TimeUnit @unit
+    * @param int $timespan
+    * @param TimeUnit $unit
     * @return int $seconds
     */
     public static function convertToSeconds(int $timespan, TimeUnit $unit): int {
