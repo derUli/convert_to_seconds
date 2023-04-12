@@ -1,30 +1,29 @@
 <?php
 
-namespace UliCMS\Utils\ConvertToSeconds;
+declare(strict_types=1);
 
-use InvalidArgumentException;
+namespace content\modules\convert_to_seconds;
 
-// This methods converts a given a time unit to seconds
-// e.g. 10 minutes will return 600
-function convertToSeconds(int $timespan, string $unit): int {
-    switch ($unit) {
-        case TimeUnit::SECONDS:
-            return $timespan;
-        case TimeUnit::MINUTES:
-            return $timespan * 60;
-        case TimeUnit::HOURS:
-            return $timespan * 60 * 60;
-        case TimeUnit::DAYS:
-            return $timespan * 60 * 60 * 24;
-        case TimeUnit::WEEKS:
-            return $timespan * 60 * 60 * 24 * 7;
-        case TimeUnit::MONTHS:
-            return $timespan * 60 * 60 * 24 * 30;
-        case TimeUnit::YEARS:
-            return $timespan * 60 * 60 * 24 * 365;
-        case TimeUnit::DECADES:
-            return $timespan * 60 * 60 * 24 * 365 * 10;
-        default:
-            throw new InvalidArgumentException("$unit is an unknown time unit.");
+class ConvertToSeconds
+{
+   /**
+    * Converts a timespan in a given unit to seconds
+    *
+    *
+    * @param int @timespan
+    * @param TimeUnit @unit
+    * @return int $seconds
+    */
+    public static function convertToSeconds(int $timespan, TimeUnit $unit): int {
+        return match ($unit) {
+            TimeUnit::SECONDS => $timespan,
+            TimeUnit::MINUTES => $timespan * 60,
+            TimeUnit::HOURS => $timespan * 60 * 60,
+            TimeUnit::DAYS => $timespan * 60 * 60 * 24,
+            TimeUnit::MONTHS => $timespan * 60 * 60 * 24 * 30,
+            TimeUnit::WEEKS => $timespan * 60 * 60 * 24 * 7,
+            TimeUnit::YEARS => $timespan * 60 * 60 * 24 * 365,
+            TimeUnit::DECADES => $timespan * 60 * 60 * 24 * 365 * 10
+            };
     }
 }

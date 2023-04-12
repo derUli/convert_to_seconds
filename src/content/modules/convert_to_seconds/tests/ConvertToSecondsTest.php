@@ -2,41 +2,65 @@
 
 declare(strict_types=1);
 
+use content\modules\convert_to_seconds\ConvertToSeconds;
+use content\modules\convert_to_seconds\TimeUnit;
 use PHPUnit\Framework\TestCase;
-use function UliCMS\Utils\ConvertToSeconds\convertToSeconds;
 
-class ConvertToSecondsTest extends TestCase {
-
-    public function testConvertReturnsSeconds() {
-        $units = [
-            "seconds" => 1,
-            "minutes" => 60,
-            "hours" => 3600,
-            "days" => 86400,
-            "weeks" => 604800,
-            "months" => 2592000,
-            "years" => 31536000,
-            "decades" => 315360000
-        ];
-
-        foreach ($units as $unit => $expectedSeconds) {
-            $this->assertEquals(
-                    $expectedSeconds,
-                    convertToSeconds(
-                            1,
-                            $unit
-                    ),
-                    "1 $unit is not $expectedSeconds seconds"
-            );
-        }
-    }
-
-    public function testConvertThrowsBadMethodCallException() {
-        $this->expectException(InvalidArgumentException::class);
-        convertToSeconds(
-                4,
-                "lightyears"
+class ConvertToSecondsTest extends TestCase
+{
+    public function testSeconds() {
+        $this->assertEquals(
+            1,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::SECONDS)
         );
     }
 
+    public function testMinutes() {
+        $this->assertEquals(
+            60,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::MINUTES)
+        );
+    }
+
+    public function testHours() {
+        $this->assertEquals(
+            3600,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::HOURS)
+        );
+    }
+
+    public function testDays() {
+        $this->assertEquals(
+            86400,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::DAYS)
+        );
+    }
+
+    public function testWeeks() {
+        $this->assertEquals(
+            604800,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::WEEKS)
+        );
+    }
+
+    public function testMonths() {
+        $this->assertEquals(
+            2592000,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::MONTHS)
+        );
+    }
+
+    public function testYears() {
+        $this->assertEquals(
+            31536000,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::YEARS)
+        );
+    }
+
+    public function testDecades() {
+        $this->assertEquals(
+            315360000,
+            ConvertToSeconds::convertToSeconds(1, TimeUnit::DECADES)
+        );
+    }
 }

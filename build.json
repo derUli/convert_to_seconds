@@ -1,10 +1,10 @@
 {
 	"id": "convert_to_seconds",
-	"version": "1.0",
+	"version": "2.0",
 	"description": "Converts a given time unit to seconds",
 	"categories": [
 		"development"
 	],
-	"compatible_from": "2019.2",
-	"min_php_version": "7.2"
+	"compatible_from": "2023.1",
+	"min_php_version": "8.1"
 }

@@ -1,17 +1,16 @@
 <?php
 
-namespace UliCMS\Utils\ConvertToSeconds;
+namespace content\modules\convert_to_seconds;
 
 // Use this constants for the $unit param of convertToSeconds()
-class TimeUnit {
-
-    const SECONDS = "seconds";
-    const MINUTES = "minutes";
-    const HOURS = "hours";
-    const DAYS = "days";
-    const WEEKS = "weeks";
-    const MONTHS = "months";
-    const YEARS = "years";
-    const DECADES = "decades";
-
+enum TimeUnit
+{
+    case SECONDS;
+    case MINUTES;
+    case HOURS;
+    case DAYS;
+    case WEEKS;
+    case MONTHS;
+    case YEARS;
+    case DECADES;
 }
