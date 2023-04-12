@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace content\modules\convert_to_seconds;
 
 /**
